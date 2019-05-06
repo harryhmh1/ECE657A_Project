@@ -1,0 +1,473 @@
+{
+  "node": [
+    {
+      "name": "dense_1_input",
+      "op": "DataInput",
+      "attr": {
+        "dtype": {
+          "type": "DT_FLOAT32"
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "4"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "shape": {
+          "shape": {
+            "dim": [
+              {
+                "size": "-1"
+              },
+              {
+                "size": "4"
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_1",
+      "op": "FullyConnected",
+      "input": [
+        "dense_1_input"
+      ],
+      "attr": {
+        "units": {
+          "i": "200"
+        },
+        "dtype": {
+          "type": "DT_FLOAT32"
+        },
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "200"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_2",
+      "op": "FullyConnected",
+      "input": [
+        "dense_1"
+      ],
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "100"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "units": {
+          "i": "100"
+        }
+      }
+    },
+    {
+      "name": "dense_3",
+      "op": "FullyConnected",
+      "input": [
+        "dense_2"
+      ],
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "90"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "units": {
+          "i": "90"
+        }
+      }
+    },
+    {
+      "name": "dense_3_activation",
+      "op": "Relu",
+      "input": [
+        "dense_3"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "90"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_4",
+      "op": "FullyConnected",
+      "input": [
+        "dense_3_activation"
+      ],
+      "attr": {
+        "units": {
+          "i": "80"
+        },
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "80"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_4_activation",
+      "op": "Sigmoid",
+      "input": [
+        "dense_4"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "80"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_5",
+      "op": "FullyConnected",
+      "input": [
+        "dense_4_activation"
+      ],
+      "attr": {
+        "units": {
+          "i": "70"
+        },
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "70"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_5_activation",
+      "op": "Sigmoid",
+      "input": [
+        "dense_5"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "70"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_6",
+      "op": "FullyConnected",
+      "input": [
+        "dense_5_activation"
+      ],
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "60"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "units": {
+          "i": "60"
+        }
+      }
+    },
+    {
+      "name": "dense_6_activation",
+      "op": "Relu",
+      "input": [
+        "dense_6"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "60"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_7",
+      "op": "FullyConnected",
+      "input": [
+        "dense_6_activation"
+      ],
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "50"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "units": {
+          "i": "50"
+        }
+      }
+    },
+    {
+      "name": "dense_7_activation",
+      "op": "Relu",
+      "input": [
+        "dense_7"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "50"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_8",
+      "op": "FullyConnected",
+      "input": [
+        "dense_7_activation"
+      ],
+      "attr": {
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "40"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "units": {
+          "i": "40"
+        }
+      }
+    },
+    {
+      "name": "dense_9",
+      "op": "FullyConnected",
+      "input": [
+        "dense_8"
+      ],
+      "attr": {
+        "units": {
+          "i": "36"
+        },
+        "use_bias": {
+          "b": true
+        },
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "36"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    },
+    {
+      "name": "dense_9_activation",
+      "op": "Softmax",
+      "input": [
+        "dense_9"
+      ],
+      "attr": {
+        "_output_shapes": {
+          "list": {
+            "shape": [
+              {
+                "dim": [
+                  {
+                    "size": "-1"
+                  },
+                  {
+                    "size": "36"
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  ]
+}
